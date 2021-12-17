@@ -42,18 +42,20 @@ pip install -r requirements.txt
 
 ## 3. Navigate to the project directory
 
-## 4. Setup Virtual Environment (This next step is only required if the package dependencies were installed into a virtual environment)
+## 4. Setup Virtual Environment (This next step is only required if the package dependencies were not already installed into a virtual environment in step 2 and if the user wants to use one)
 
 Activate the virtual environment.
 To check if it is or has already been activated, (venv) should appear before the console line.
 
 Windows:
 ```bash
+python3 -m venv venv
 .\venv\Scripts\activate
 ```
 
 Mac/Linux:
 ```bash
+python3 -m venv venv
 ./venv/bin/activate
 ```
 
