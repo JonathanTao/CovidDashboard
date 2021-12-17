@@ -22,14 +22,12 @@ This can be done into a virtual environment but is not required:
 
 Windows:
 ```bash
-python3 -m venv venv
 .\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
 Mac/Linux:
 ```bash
-python3 -m venv venv
 ./venv/bin/activate
 pip install -r requirements.txt
 ```
@@ -49,13 +47,11 @@ To check if it is or has already been activated, (venv) should appear before the
 
 Windows:
 ```bash
-python3 -m venv venv
 .\venv\Scripts\activate
 ```
 
 Mac/Linux:
 ```bash
-python3 -m venv venv
 ./venv/bin/activate
 ```
 
