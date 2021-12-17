@@ -10,4 +10,6 @@ import time
 
 
 
-scheduler = sched.scheduler(time.time, time.sleep) #creates an instance of a scheduler which will be used across other files
+#creates an instance of a scheduler which will be used across other files
+
+scheduler = sched.scheduler(time.time, time.sleep)

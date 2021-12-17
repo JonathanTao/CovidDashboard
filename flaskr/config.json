@@ -1,5 +1,5 @@
 {
-	"covidDataDetails": {
+	"covidData": {
 		"favicon" : "favicon.ico",
 		"localLocation": "Leicester",
 		"localLocationType": "ltla",
@@ -7,12 +7,12 @@
 		"nationalLocationType": "nation",
 		"title" : "COVID-19 Data"
 	},
-	"loggingDetails": {
+	"logging": {
 		"file" : "flaskr/logs/logs.log",
 		"format" : "%(levelname)s:%(name)s: [%(asctime)s] - %(message)s",		
         "level" : 10
 	},
-	"newsDetails": {		
+	"news": {		
 		"apiKey": "c48d6a7b8d91457ca376559311285019",		
 		"apiUrl" : "https://newsapi.org/v2/everything",
 		"covidTerms": "Covid COVID-19 coronavirus",

@@ -4,7 +4,7 @@
         - finds the update that the user is looking for
         - deletes updates from the list of alarmed updates
         - cancels updates from the scheduler's queue
-        - adds updates to the list of alarmed updates        
+        - adds updates to the list of alarmed updates
 '''
 
 
@@ -20,91 +20,229 @@ from flaskr import shared_scheduler
 
 
 
-counter = 0 #used to give each update a unique title so it can be distinguished by concatenating itself with the update label
-alarmed_updates = [] #list of updates
+#used to give each update a unique title
+
+COUNTER = 0
+
+#list of updates
+
+ALARMED_UPDATES = []
 
 
 
-def schedule_updates(name, time_interval, repeat, covid_data, covid_news): #used to schedule an update when the submit button is clicked
-    global alarmed_updates
-    global counter
-    
-    counter += 1 #add 1 each time so that each update has a unique title
-    
+def schedule_updates(name, time_interval, repeat, covid_data, covid_news):
+    '''
+    used to schedule an update when the submit button is clicked
+    '''
+
+    global COUNTER
+
+    #add 1 each time so that each update has a unique title
+
+    COUNTER += 1
+
+    title = "Update" +  str(COUNTER) + " " + name
+
+    try:
+
+    #get current time
+
+        current_date = datetime.now()
+
+        #turn that into a string displaying in hours and minutes
+
+        current_date_string = datetime.strftime(current_date, "%H:%M")
+
+        #then turn it into a datetime object in hours and minutes
+
+        current_time = datetime.strptime(current_date_string, "%H:%M")
+
+        #get the update time and turn it from a string into a datetime object in hours and minutes
+
+        update_time = datetime.strptime(time_interval, "%H:%M")
+
+        #find the difference in time
+
+        difference = update_time - current_time
+
+        #convert to seconds
+
+        seconds_until_update = difference.total_seconds()
+
+        #if this is true then schedule an event for covid data
+
+        if covid_data is not None:
+
+            event = covid_data_handler.schedule_covid_updates(seconds_until_update, title)
+
+            #call function to add the update to list of updates
+
+            add_updates(title, time_interval, repeat, covid_data, covid_news)
+
+            #calls function to update the event
+
+            update_event(title, event)
+
+        #if this is true then schedule an event for covid news
+
+        if covid_news is not None:
+
+            event = covid_news_handling.schedule_news_updates(seconds_until_update, title)
+
+            #call function to add the update to list of updates
+
+            add_updates(title, time_interval, repeat, covid_data, covid_news)
+
+            #calls function to update the event
+
+            update_event(title, event)
+
+    #will occur if a time is not given
+    #in this case an event will still appear as a tab but with no time
+
+    except ValueError as error:
+
+        logging.warning("event has not been given a time: %s", error)
+
+        #call function to add the update to list of updates
+
+        add_updates(title, None, repeat, covid_data, covid_news)
+
+
+
+def find_update(title):
+    '''
+    used to find the update by its unique title
+    '''
+
+    #loop through all updates
+
+    for update in ALARMED_UPDATES:
+
+    #if the title passed through is equal to one of the titles of the updates in alarmed updates
+
+        if title == update["title"]:
+
+            return update
+
+    return None
+
+
+
+def delete_updates(title):
+    '''
+    used to delete update through its unique title
+    '''
+
+    #loop through all updates
+
+    for update in ALARMED_UPDATES:
+
+    #if the title passed through is equal to one of the titles of the updates in the list of updates
+
+        if title == update["title"]:
+
+        #remove the update from list of updates
+
+            ALARMED_UPDATES.remove(update)
+
+            logging.info("Update has been removed from list: %s", title)
+
+
+
+def cancel_event(title):
+    '''
+    used to cancel an event through its unique title
+    '''
+
+    #loop through all updates
+
+    for update in ALARMED_UPDATES:
+
+    #if the title passed through is equal to one of the titles of the updates in the list of updates
+
+        if title == update["title"]:
+
+        #if an update exists, cancel the update
+
+            if update["event"] is not None:
+
+                shared_scheduler.scheduler.cancel(update["event"])
+
+                logging.info("Event has been cancelled: %s", title)
+
+            else:
+
+                logging.info("Not time on the update so no event cancelled: %s", title)
+
+
+
+def add_updates(title, time_interval, repeat, covid_data, covid_news):
+    '''
+    used to add an update to a list of updates which will then be displayed on the page
+    '''
+
+    #call functions to get corresponding true or false values
+
     repeating = get_values_for_content(repeat)
-    display_covid_data = get_values_for_content(covid_data) #call functions to get corresponding true or false values
+    display_covid_data = get_values_for_content(covid_data)
     display_news = get_values_for_content(covid_news)
 
-    title = "Update" +  str(counter) + " " + name
-    
-    try:
-        current_date = datetime.now()  #get current time
-        current_date_string = datetime.strftime(current_date, "%H:%M") #turn that into a string displaying only hours and minutes
-        current_time = datetime.strptime(current_date_string, "%H:%M") #then turn it into a datetime object with only hours and minutes
-        update_time = datetime.strptime(time_interval, "%H:%M") #get the time put in the time section and turn it from a string into a datetime object with only hours and minutes
-        difference = update_time - current_time #find the difference in time
-        seconds_until_update = difference.total_seconds() #convert to seconds               
-        if display_covid_data: #if this is true then schedule an event for covid data
-            covid_data_handler.schedule_covid_updates(seconds_until_update, title)
-        if display_news: #if this is true then schedule an event for covid news
-            covid_news_handling.schedule_news_updates(seconds_until_update, title)
-        add_updates(title, time_interval, repeating, display_covid_data, display_news)
-    except: #will occur if a time is not given. In this case an event will still appear as a tab but with no time
-        logging.warning("event has not been given a time: " + title)
-        add_updates(title, None, repeating, display_covid_data, display_news)
-        
+    #if a time was given
 
+    if time_interval is not None:
 
-def find_update(title): #used to find the update by its unique title
-    global alarmed_updates
-    
-    for update in alarmed_updates: #loop through all updates
-        if title == update["title"]:
-            return update
-    return None           
-           
-           
-        
-def delete_updates(title): #used to delete update through its unique title
-    global alarmed_updates
-        
-    for update in alarmed_updates: #loop through all updates
-        if title == update["title"]: 
-            alarmed_updates.remove(update)
-            logging.info("Update has been removed from list: " + title)
-
-
-
-def cancel_updates(title): #used to cancel an update/event through its unique title
-    global alarmed_updates
-    
-    for update in alarmed_updates: #loop through all updates
-        if title == update["title"]:
-            shared_scheduler.scheduler.cancel(update["event"])
-            logging.info("Event has been cancelled: " + title)
-    
-    
-    
-def add_updates(title, time_interval, repeating, display_covid_data, display_news): #used to add an update to a list of updates which will then be displayed on the page
-    global alarmed_updates   
-    
-    if time_interval is not None: #if a time was not given
         time_for_update = time_interval
+
+    #if a time was not given
+
     else:
+
         time_for_update = "No time input"
-        
-    alarmed_updates.append({"title" : title, #appends a dictionary to the list of updates
-                            "content" : "Time of update: " + time_for_update 
-                            + ". Repeating: " + str(repeating) 
-                            + ". Display covid data: " + str(display_covid_data) 
+
+    #appends a dictionary to the list of updates
+    #key 'event' has value 'None' and will changed later by the function 'update_event'
+
+    ALARMED_UPDATES.append({"title" : title,
+                            "content" : "Time of update: " + time_for_update
+                            + ". Repeating: " + str(repeating)
+                            + ". Display covid data: " + str(display_covid_data)
                             + ". Display news: " + str(display_news),
-                            "repeating" : repeating})   
-    logging.info("Update has been added to list: " + title)
-    
-        
-    
-def get_values_for_content(variable): #used to get corresponding true or false values
+                            "repeating" : repeating,
+                            "event" : None})
+
+    logging.info("Update has been added to list: %s", title)
+
+
+
+def update_event(title, event):
+    '''
+    used to update an event through its unique title
+    '''
+
+    #loop through all updates
+
+    for update in ALARMED_UPDATES:
+
+    #if the title passed through is equal to one of the titles of the updates in the list of updates
+
+        if title == update["title"]:
+
+            #update the 'event' key for that particular update
+
+            update["event"] = event
+
+            logging.info("Event has been updated: %s", title)
+
+
+
+def get_values_for_content(variable):
+    '''
+    used to get corresponding true or false values
+    '''
+
     if variable is None:
+
         return False
-    else:
-        return True
+
+    return True

@@ -4,62 +4,121 @@
 '''
 
 
+
+import time
+
+
+
 from flaskr.covid_news_handling import news_API_request
 from flaskr.covid_news_handling import schedule_news_updates
 from flaskr.covid_news_handling import store_deleted_news_article
 from flaskr.covid_news_handling import remove_news_article
-from flaskr.covid_news_handling import news_articles
-from flaskr.covid_news_handling import deleted_news_articles_titles
+from flaskr.covid_news_handling import NEWS_ARTICLES
+from flaskr.covid_news_handling import DELETED_NEWS_ARTICLES_TITLES
 from flaskr.shared_scheduler import scheduler
 
 
 
 def test_news_API_request():
-    test_data = news_API_request("Covid COVID-19 coronavirus")    
-    assert len(test_data) > 1 #test that news articles have been loaded in
-    
-    
-    
-def test_schedule_news_updates():    
-    assert len(scheduler.queue) == 0 #when testing, queue should be empty to begin with
-    
-    schedule_news_updates(5, "test")   
-    
-    assert len(scheduler.queue) == 1 #test that update has been added to queue    
-    
+    '''
+    test 'news_API_request' function
+    '''
+
+    #call function to get news
+
+    test_data = news_API_request("Covid COVID-19 coronavirus")
+
+    #test that news articles have been loaded in
+
+    assert len(test_data) > 1
+
+
+
+def test_schedule_news_updates():
+    '''
+    test 'schedule_news_updates' function
+    '''
+
+    #when testing, queue should be empty to begin with
+
+    assert len(scheduler.queue) == 0
+
+    #call function to get news
+
+    schedule_news_updates(5, "test")
+
+    #test that update has been added to queue
+
+    assert len(scheduler.queue) == 1
+
+    #run the scheduler
+
     scheduler.run(blocking = False)
-    
-    assert len(scheduler.queue) == 1 #test that the update is still in the queue after scheduler.run has been called
-    
-    time.sleep(5) #wait 5 seconds
-    
+
+    #test that the update is still in the queue after scheduler.run has been called
+
+    assert len(scheduler.queue) == 1
+
+    #wait 5 seconds
+
+    time.sleep(5)
+
+    #run the scheduler
+
     scheduler.run(blocking = False)
-    
-    assert len(scheduler.queue) == 0 #test that the update is no longer in the queue
-    
-    
-    
-def test_store_deleted_news_article():  
-    assert len(deleted_news_articles_titles) == 0 #when testing, list should be empty to begin with
+
+    #test that the update is no longer in the queue
+
+    assert len(scheduler.queue) == 0
+
+
+
+def test_store_deleted_news_article():
+    '''
+    test 'store_deleted_news_article' function
+    '''
+
+    #when testing, list should be empty to begin with
+
+    assert len(DELETED_NEWS_ARTICLES_TITLES) == 0
 
     test_title = "hello world"
-    
+
+    #call function to deal with deleted news article
+
     store_deleted_news_article(test_title)
-    
-    assert len(deleted_news_articles_titles) == 1 #test the news article title has been added to the list
-    
-    
+
+    #test the news article title has been added to the list
+
+    assert len(DELETED_NEWS_ARTICLES_TITLES) == 1
+
+
 
 def test_remove_news_article():
-    assert len(news_articles) == 0 #when testing, list should be empty to begin with
-    
-    news_articles.append({"title": "test", "content" : "hello world"}) #add test news article to list of news articles
-    
-    assert len(news_articles) == 1 #test the news article has been added to the list
-    
-    store_deleted_news_article("test") #add news article title to list of deleted news article titles
-    
+    '''
+    test 'test_remove_news_article' function
+    '''
+
+    #when testing, list should be empty to begin with
+
+    assert len(NEWS_ARTICLES) == 0
+
+    #add test news article to list of news articles
+
+    NEWS_ARTICLES.append({"title": "test", "content" : "hello world"})
+
+    #test the news article has been added to the list
+
+    assert len(NEWS_ARTICLES) == 1
+
+    #add news article title to list of deleted news article titles
+
+    store_deleted_news_article("test")
+
+    #call function to remove news article
+
     remove_news_article()
-    
-    assert len(news_articles) == 0 #test that the news article is no longer in the list
-    
+
+    #test that the news article is no longer in the list
+
+    assert len(NEWS_ARTICLES) == 0

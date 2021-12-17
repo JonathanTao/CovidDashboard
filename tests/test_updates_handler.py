@@ -8,71 +8,133 @@
 from flaskr.updates_handler import add_updates
 from flaskr.updates_handler import find_update
 from flaskr.updates_handler import delete_updates
-from flaskr.updates_handler import cancel_updates
-from flaskr.updates_handler import alarmed_updates
+from flaskr.updates_handler import cancel_event
+from flaskr.updates_handler import update_event
+from flaskr.updates_handler import ALARMED_UPDATES
 from flaskr.covid_data_handler import schedule_covid_updates
 from flaskr.covid_news_handling import schedule_news_updates
+from flaskr.shared_scheduler import scheduler
 
 
 
 def test_add_updates():
-    assert len(alarmed_updates) == 0 #when testing, list should be empty to begin with
-    
-    add_updates("test", "14:00", False, True, False) #when a time is given
-    
-    assert len(alarmed_updates) == 1 #test the update has been added to the list
-    
-    add_updates("test", None, False, True, False) #when a time is not given
-    
-    assert len(alarmed_updates) == 2 #test the update has been added to the list
-    
+    '''
+    test 'add_updates' function
+    '''
+
+    #when testing, list should be empty to begin with
+
+    assert len(ALARMED_UPDATES) == 0
+
+    #when a time is given
+
+    add_updates("test", "14:00", False, True, False)
+
+    #test the update has been added to the list
+
+    assert len(ALARMED_UPDATES) == 1
+
+    #when a time is not given
+
+    add_updates("test", None, False, True, False)
+
+    #test the update has been added to the list
+
+    assert len(ALARMED_UPDATES) == 2
+
 
 
 def test_find_update():
-    add_updates("test", None, False, True, False) #add an update
-    
+    '''
+    test 'find_update' function
+    '''
+
+    #call function to add an update
+
+    add_updates("test", None, False, True, False)
+
+    #call function to find update
+
     update = find_update("test")
-    
-    assert update != None #test that update should be found
-    
+
+    #test that update should be found
+
+    assert update is not None
+
+    #call function to find update
+
     update = find_update("hello")
-    
-    assert update == None #test that update should not be found
-    
-    
-    
+
+    #test that update should not be found
+
+    assert update is None
+
+
+
 def test_delete_updates():
-    assert len(alarmed_updates) == 0 #when testing, list should be empty to begin with
+    '''
+    test 'delete_updates' function
+    '''
 
-    add_updates("test", "14:00", False, True, False) #add an update
-    
-    assert len(alarmed_updates) == 1 #test the update has been added to the list
-    
-    delete_updates("test") 
-    
-    assert len(alarmed_updates) == 0 #test the update has been removed from the list
-    
-    
+    #when testing, list should be empty to begin with
 
-def test_cancel_updates():
-    assert len(shared_scheduler.scheduler.queue) == 0 #when testing, queue should be empty to begin with
+    assert len(ALARMED_UPDATES) == 0
 
-    schedule_covid_updates(5, "hello") #schedule a covid update
-    
-    assert len(shared_scheduler.scheduler.queue) == 1 #test the update has been added to the queue
-    
-    cancel_updates("hello")
-    
-    assert len(shared_scheduler.scheduler.queue) == 0 #test that the update has been removed from the queue
-    
-    schedule_news_updates(5, "hello") #schedule a covid update
-    
-    assert len(shared_scheduler.scheduler.queue) == 1 #test the update has been added to the queue
-    
-    cancel_updates("hello")
-    
-    assert len(shared_scheduler.scheduler.queue) == 0 #test that the update has been removed from the queue
-    
-    
-    
-    
+    #call function to add an update
+
+    add_updates("test", "14:00", False, True, False)
+
+    #test the update has been added to the list
+
+    assert len(ALARMED_UPDATES) == 1
+
+    #call function to delete an update
+
+    delete_updates("test")
+
+    #test the update has been removed from the list
+
+    assert len(ALARMED_UPDATES) == 0
+
+
+
+def test_cancel_event():
+    '''
+    test 'cancel_event' function
+    '''
+
+    #when testing, queue should be empty to begin with
+
+    assert len(scheduler.queue) == 0
+
+    #schedule a covid update
+
+    event = schedule_covid_updates(5, "hello")
+
+    #test the update has been added to the queue
+
+    assert len(scheduler.queue) == 1
+
+    #cancel the event
+
+    cancel_event("hello")
+
+    #test that the update has been removed from the queue
+
+    assert len(scheduler.queue) == 0
+
+    #schedule a news update
+
+    event = schedule_news_updates(5, "hello")
+
+    #test the update has been added to the queue
+
+    assert len(scheduler.queue) == 1
+
+    #cancel the event
+
+    cancel_event("hello")
+
+    #test that the update has been removed from the queue
+
+    assert len(scheduler.queue) == 0

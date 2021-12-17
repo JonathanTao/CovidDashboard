@@ -3786,3 +3786,155 @@ INFO:root: [2021-12-14 13:33:07,561] - scheduler running events
 DEBUG:root: [2021-12-14 13:33:07,561] - scheduler queue after scheduler run: []
 INFO:werkzeug: [2021-12-14 13:33:07,577] - 127.0.0.1 - - [14/Dec/2021 13:33:07] "GET /index HTTP/1.1" 200 -
 INFO:werkzeug: [2021-12-14 13:33:07,751] - 127.0.0.1 - - [14/Dec/2021 13:33:07] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: [2021-12-17 00:33:04,590] - app started
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:04,595] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:04,893] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:04,902] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:05,069] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:33:05,073] - data parsed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:05,075] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:05,352] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:05,354] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:05,652] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:33:05,652] - data parsed successfully
+INFO:root: [2021-12-17 00:33:05,652] - Covid data processed successfully
+INFO:root: [2021-12-17 00:33:05,652] - Covid data processed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:05,652] - Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:06,202] - https://newsapi.org:443 "GET /v2/everything?apiKey=c48d6a7b8d91457ca376559311285019&from=3&language=en&pageSize=5&sortBy=publishedAt&q=Covid+OR+COVID-19+OR+coronavirus HTTP/1.1" 200 None
+INFO:root: [2021-12-17 00:33:06,217] - News fetched successfully
+INFO:werkzeug: [2021-12-17 00:33:06,233] -  * Restarting with stat
+INFO:root: [2021-12-17 00:33:06,685] - app started
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:06,685] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:06,976] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:06,981] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:07,057] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:33:07,059] - data parsed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:07,061] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:07,135] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:07,135] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:07,206] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:33:07,207] - data parsed successfully
+INFO:root: [2021-12-17 00:33:07,208] - Covid data processed successfully
+INFO:root: [2021-12-17 00:33:07,208] - Covid data processed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:07,209] - Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:33:07,341] - https://newsapi.org:443 "GET /v2/everything?apiKey=c48d6a7b8d91457ca376559311285019&from=3&language=en&pageSize=5&sortBy=publishedAt&q=Covid+OR+COVID-19+OR+coronavirus HTTP/1.1" 200 None
+INFO:root: [2021-12-17 00:33:07,345] - News fetched successfully
+DEBUG:root: [2021-12-17 00:33:20,940] - scheduler queue before scheduler run: []
+INFO:root: [2021-12-17 00:33:20,940] - scheduler running events
+DEBUG:root: [2021-12-17 00:33:20,940] - scheduler queue after scheduler run: []
+INFO:werkzeug: [2021-12-17 00:33:20,965] - 127.0.0.1 - - [17/Dec/2021 00:33:20] "[35m[1mGET /index HTTP/1.1[0m" 500 -
+INFO:werkzeug: [2021-12-17 00:33:21,096] - 127.0.0.1 - - [17/Dec/2021 00:33:21] "GET /index?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:33:21,214] - 127.0.0.1 - - [17/Dec/2021 00:33:21] "GET /index?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:33:21,536] - 127.0.0.1 - - [17/Dec/2021 00:33:21] "GET /index?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:33:21,578] - 127.0.0.1 - - [17/Dec/2021 00:33:21] "GET /index?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:33:21,790] - 127.0.0.1 - - [17/Dec/2021 00:33:21] "GET /index?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:34:02,395] -  * Detected change in 'C:\\Users\\jonat\\OneDrive\\Documents\\Compsci\\Programming\\Code\\CA\\flaskr\\__init__.py', reloading
+INFO:werkzeug: [2021-12-17 00:34:02,431] -  * Restarting with stat
+INFO:root: [2021-12-17 00:34:02,895] - app started
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:02,899] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:02,995] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:02,999] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:03,211] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:34:03,211] - data parsed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:03,211] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:03,278] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:03,294] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:03,362] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:34:03,362] - data parsed successfully
+INFO:root: [2021-12-17 00:34:03,362] - Covid data processed successfully
+INFO:root: [2021-12-17 00:34:03,362] - Covid data processed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:03,362] - Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:34:03,752] - https://newsapi.org:443 "GET /v2/everything?apiKey=c48d6a7b8d91457ca376559311285019&from=3&language=en&pageSize=5&sortBy=publishedAt&q=Covid+OR+COVID-19+OR+coronavirus HTTP/1.1" 200 None
+INFO:root: [2021-12-17 00:34:03,752] - News fetched successfully
+DEBUG:root: [2021-12-17 00:34:08,051] - scheduler queue before scheduler run: []
+INFO:root: [2021-12-17 00:34:08,051] - scheduler running events
+DEBUG:root: [2021-12-17 00:34:08,051] - scheduler queue after scheduler run: []
+INFO:werkzeug: [2021-12-17 00:34:08,060] - 127.0.0.1 - - [17/Dec/2021 00:34:08] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:34:08,284] - 127.0.0.1 - - [17/Dec/2021 00:34:08] "GET /static/images/favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:34:08,330] - 127.0.0.1 - - [17/Dec/2021 00:34:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:root: [2021-12-17 00:34:11,559] - GET request on 'notif'
+INFO:root: [2021-12-17 00:34:11,559] - News article added to list of deleted news articles: On China, CNN's Sinophobic 'expert' is clueless
+INFO:root: [2021-12-17 00:34:11,560] - News article removed from list of news articles: On China, CNN's Sinophobic 'expert' is clueless
+DEBUG:root: [2021-12-17 00:34:11,560] - scheduler queue before scheduler run: []
+INFO:root: [2021-12-17 00:34:11,560] - scheduler running events
+DEBUG:root: [2021-12-17 00:34:11,561] - scheduler queue after scheduler run: []
+INFO:werkzeug: [2021-12-17 00:34:11,563] - 127.0.0.1 - - [17/Dec/2021 00:34:11] "GET /index?notif=On+China%2C+CNN%27s+Sinophobic+%27expert%27+is+clueless HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:34:11,586] - 127.0.0.1 - - [17/Dec/2021 00:34:11] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: [2021-12-17 00:34:17,770] - GET request on 'two'
+INFO:root: [2021-12-17 00:34:17,772] - event has been added to scheduler for a news update: Update1 hello
+INFO:root: [2021-12-17 00:34:17,773] - Update has been added to list: Update1 hello
+INFO:root: [2021-12-17 00:34:17,773] - Event has been updated: Update1 hello
+DEBUG:root: [2021-12-17 00:34:17,773] - scheduler queue before scheduler run: [Event(time=1639715657.7720726, priority=1, action=<function update_news at 0x000001F8CAF12790>, argument=('Update1 hello',), kwargs={})]
+INFO:root: [2021-12-17 00:34:17,773] - scheduler running events
+DEBUG:root: [2021-12-17 00:34:17,773] - scheduler queue after scheduler run: [Event(time=1639715657.7720726, priority=1, action=<function update_news at 0x000001F8CAF12790>, argument=('Update1 hello',), kwargs={})]
+INFO:werkzeug: [2021-12-17 00:34:17,776] - 127.0.0.1 - - [17/Dec/2021 00:34:17] "GET /index?alarm=04%3A34&two=hello&repeat=repeat&news=news HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:34:18,080] - 127.0.0.1 - - [17/Dec/2021 00:34:18] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: [2021-12-17 00:34:21,325] - GET request on 'alarm_item'
+INFO:root: [2021-12-17 00:34:21,325] - Update has been removed from list: Update1 hello
+DEBUG:root: [2021-12-17 00:34:21,325] - scheduler queue before scheduler run: [Event(time=1639715657.7720726, priority=1, action=<function update_news at 0x000001F8CAF12790>, argument=('Update1 hello',), kwargs={})]
+INFO:root: [2021-12-17 00:34:21,326] - scheduler running events
+DEBUG:root: [2021-12-17 00:34:21,327] - scheduler queue after scheduler run: [Event(time=1639715657.7720726, priority=1, action=<function update_news at 0x000001F8CAF12790>, argument=('Update1 hello',), kwargs={})]
+INFO:werkzeug: [2021-12-17 00:34:21,329] - 127.0.0.1 - - [17/Dec/2021 00:34:21] "GET /index?alarm_item=Update1+hello HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:34:21,352] - 127.0.0.1 - - [17/Dec/2021 00:34:21] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+INFO:root: [2021-12-17 00:34:26,092] - GET request on 'notif'
+INFO:root: [2021-12-17 00:34:26,092] - News article added to list of deleted news articles: Biden: Unvaxxed will ‘overwhelm’ hospitals in ‘winter of illness and death’
+INFO:root: [2021-12-17 00:34:26,094] - News article removed from list of news articles: Biden: Unvaxxed will ‘overwhelm’ hospitals in ‘winter of illness and death’
+DEBUG:root: [2021-12-17 00:34:26,094] - scheduler queue before scheduler run: [Event(time=1639715657.7720726, priority=1, action=<function update_news at 0x000001F8CAF12790>, argument=('Update1 hello',), kwargs={})]
+INFO:root: [2021-12-17 00:34:26,094] - scheduler running events
+DEBUG:root: [2021-12-17 00:34:26,094] - scheduler queue after scheduler run: [Event(time=1639715657.7720726, priority=1, action=<function update_news at 0x000001F8CAF12790>, argument=('Update1 hello',), kwargs={})]
+INFO:werkzeug: [2021-12-17 00:34:26,094] - 127.0.0.1 - - [17/Dec/2021 00:34:26] "GET /index?notif=Biden%3A+Unvaxxed+will+‘overwhelm’+hospitals+in+‘winter+of+illness+and+death’ HTTP/1.1" 200 -
+INFO:werkzeug: [2021-12-17 00:34:26,401] - 127.0.0.1 - - [17/Dec/2021 00:34:26] "[36mGET /static/images/favicon.ico HTTP/1.1[0m" 304 -
+INFO:werkzeug: [2021-12-17 00:43:56,758] -  * Detected change in 'C:\\Users\\jonat\\OneDrive\\Documents\\Compsci\\Programming\\Code\\CA\\tests\\test_updates_handler.py', reloading
+INFO:werkzeug: [2021-12-17 00:43:56,790] -  * Restarting with stat
+INFO:root: [2021-12-17 00:43:57,184] - app started
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:57,184] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:57,540] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:57,540] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:57,741] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:43:57,745] - data parsed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:57,745] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:58,024] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:58,040] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:58,190] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:43:58,190] - data parsed successfully
+INFO:root: [2021-12-17 00:43:58,190] - Covid data processed successfully
+INFO:root: [2021-12-17 00:43:58,190] - Covid data processed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:58,205] - Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:43:58,642] - https://newsapi.org:443 "GET /v2/everything?apiKey=c48d6a7b8d91457ca376559311285019&from=3&language=en&pageSize=5&sortBy=publishedAt&q=Covid+OR+COVID-19+OR+coronavirus HTTP/1.1" 200 None
+INFO:root: [2021-12-17 00:43:58,642] - News fetched successfully
+INFO:werkzeug: [2021-12-17 00:45:02,002] -  * Detected change in 'C:\\Users\\jonat\\OneDrive\\Documents\\Compsci\\Programming\\Code\\CA\\tests\\test_updates_handler.py', reloading
+INFO:werkzeug: [2021-12-17 00:45:02,033] -  * Restarting with stat
+INFO:root: [2021-12-17 00:45:02,448] - app started
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,448] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,575] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,584] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,647] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:45:02,647] - data parsed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,647] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,885] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,885] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,963] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:45:02,963] - data parsed successfully
+INFO:root: [2021-12-17 00:45:02,963] - Covid data processed successfully
+INFO:root: [2021-12-17 00:45:02,963] - Covid data processed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:02,979] - Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:45:03,364] - https://newsapi.org:443 "GET /v2/everything?apiKey=c48d6a7b8d91457ca376559311285019&from=3&language=en&pageSize=5&sortBy=publishedAt&q=Covid+OR+COVID-19+OR+coronavirus HTTP/1.1" 200 None
+INFO:root: [2021-12-17 00:45:03,380] - News fetched successfully
+INFO:werkzeug: [2021-12-17 00:46:14,197] -  * Detected change in 'C:\\Users\\jonat\\OneDrive\\Documents\\Compsci\\Programming\\Code\\CA\\tests\\test_updates_handler.py', reloading
+INFO:werkzeug: [2021-12-17 00:46:14,228] -  * Restarting with stat
+INFO:root: [2021-12-17 00:46:14,629] - app started
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:14,629] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:14,813] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:14,813] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:14,998] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dltla%3BareaName%3DLeicester&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:46:14,998] - data parsed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:14,998] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:15,284] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:15,284] - Starting new HTTPS connection (1): api.coronavirus.data.gov.uk:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:15,516] - https://api.coronavirus.data.gov.uk:443 "GET /v1/data?filters=areaType%3Dnation%3BareaName%3DEngland&structure=%7B%22areaCode%22%3A%22areaCode%22%2C%22areaName%22%3A%22areaName%22%2C%22areaType%22%3A%22areaType%22%2C%22date%22%3A%22date%22%2C%22cumDailyNsoDeathsByDeathDate%22%3A%22cumDailyNsoDeathsByDeathDate%22%2C%22hospitalCases%22%3A%22hospitalCases%22%2C%22newCasesBySpecimenDate%22%3A%22newCasesBySpecimenDate%22%7D&format=csv&page=2 HTTP/1.1" 204 0
+INFO:root: [2021-12-17 00:46:15,516] - data parsed successfully
+INFO:root: [2021-12-17 00:46:15,516] - Covid data processed successfully
+INFO:root: [2021-12-17 00:46:15,516] - Covid data processed successfully
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:15,516] - Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool: [2021-12-17 00:46:15,917] - https://newsapi.org:443 "GET /v2/everything?apiKey=c48d6a7b8d91457ca376559311285019&from=3&language=en&pageSize=5&sortBy=publishedAt&q=Covid+OR+COVID-19+OR+coronavirus HTTP/1.1" 200 None
+INFO:root: [2021-12-17 00:46:15,917] - News fetched successfully
