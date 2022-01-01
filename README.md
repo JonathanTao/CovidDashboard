@@ -1,5 +1,33 @@
 # CovidDashboard
 
+## IMPORTANT FIX NOTES
+
+Please read the following before beginning:
+
+01/01/2022: When you have reached the "2. Installation" step in the README.md file, if using a virtual environment, before following the instructions in that section, delete the "venv" file which was provided and instead install your own venv file by following the steps below for your specific machine:
+
+Windows:
+```bash
+python3 -m venv venv
+```
+
+Mac/Linux:
+```bash
+python3 -m venv venv
+```
+
+01/01/2022: In the "\_\_init\_\_.py" file, swap lines 80 and 84 around. This is because there would be no event to cancel if the alarmed update is deleted beforehand as the "title" key from the alarmed update is required to find the correct event or 2 events (news and covid update) to cancel.
+
+Line 80:
+```python
+updates_handler.delete_updates(scheduled_update_title)
+```
+
+Line 84:
+```python
+updates_handler.cancel_event(scheduled_update_title)
+```
+
 ## 1. Download
 
 There are 2 ways this can be done:
@@ -216,4 +244,3 @@ This can be changed with values found on [https://newsapi.org/docs/](https://new
 4. Updates are handled using the "sched" module.
 5. Logging is handled using the "logging" module.
 6. Flask is handled using the "flask" module.
-
