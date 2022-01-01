@@ -16,7 +16,7 @@ Mac/Linux:
 python3 -m venv venv
 ```
 
-01/01/2022: In the "\_\_init\_\_.py" file, swap lines 80 and 84 around. This is because there would be no event to cancel if the alarmed update is deleted beforehand as the "title" key from the alarmed update is required to find the correct event or 2 events (news and covid update) to cancel.
+01/01/2022: In the "flaskr/\_\_init\_\_.py" file, swap lines 80 and 84 around. This is because there would be no event to cancel if the alarmed update is deleted beforehand as the "title" key from the alarmed update is required to find the correct event or 2 events (news and covid update) to cancel.
 
 Line 80:
 ```python
